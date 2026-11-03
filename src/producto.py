@@ -12,7 +12,7 @@ class Producto:
         print("Nombre:     ", self.nombre)
         print(f"Precio:      ${self.precio:,.2f}")
         print("Existencia: ", self.existencia)
-        print("Producto registrado")
+        print("Producto disponible y registrado")
 
 
 if __name__ == "__main__":
