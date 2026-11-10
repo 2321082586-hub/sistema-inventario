@@ -1,0 +1,36 @@
+test_cp01_crear_producto (test_producto.TestProducto)
+CP01 - Crear producto ... ok
+test_cp02_mostrar_codigo (test_producto.TestProducto)
+CP02 - Mostrar código ... ok
+test_cp03_mostrar_nombre (test_producto.TestProducto)
+CP03 - Mostrar nombre ... ok
+test_cp04_mostrar_precio (test_producto.TestProducto)
+CP04 - Mostrar precio ... FAIL
+test_cp05_mostrar_existencia (test_producto.TestProducto)
+CP05 - Mostrar existencia ... ok
+test_cp06_mostrar_informacion_completa (test_producto.TestProducto)
+CP06 - Mostrar información completa ... test_cp07_crear_segundo_producto (test_producto.TestProducto)
+CP07 - Crear segundo producto ... ok
+
+======================================================================
+FAIL: test_cp04_mostrar_precio (test_producto.TestProducto)
+CP04 - Mostrar precio
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeshua/Downloads/sistema-inventario/tests/test_producto.py", line 55, in test_cp04_mostrar_precio
+    self.assertIn("350.00", linea(self.salida, "Precio"))
+AssertionError: '350.00' not found in 'Precio:      $351.00'
+
+======================================================================
+FAIL: test_cp06_mostrar_informacion_completa (test_producto.TestProducto) (dato='Precio')
+CP06 - Mostrar información completa
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jeshua/Downloads/sistema-inventario/tests/test_producto.py", line 67, in test_cp06_mostrar_informacion_completa
+    self.assertIn(valor, linea(self.salida, etiqueta))
+AssertionError: '350.00' not found in 'Precio:      $351.00'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (failures=2)

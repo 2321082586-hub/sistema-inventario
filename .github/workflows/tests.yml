@@ -1,0 +1,26 @@
+# Workflow de pruebas (TEST) del Sistema de Inventario
+name: Pruebas - Sistema de Inventario
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Ejecutar pruebas unitarias
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar el entorno de Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ejecutar las pruebas (unittest)
+        run: python -m unittest discover -s tests -v
