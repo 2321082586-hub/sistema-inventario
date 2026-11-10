@@ -1,0 +1,13 @@
+diff --git a/src/producto.py b/src/producto.py
+index a94bd3d..25ce19c 100644
+--- a/src/producto.py
++++ b/src/producto.py
+@@ -10,7 +10,7 @@ class Producto:
+     def mostrar_informacion(self):
+         print("Código:     ", self.codigo)
+         print("Nombre:     ", self.nombre)
+-        print(f"Precio:      ${self.precio:,.2f}")
++        print(f"Precio:      ${self.precio + 1:,.2f}")
+         print("Existencia: ", self.existencia)
+         print("Producto disponible y registrado")
+ 
