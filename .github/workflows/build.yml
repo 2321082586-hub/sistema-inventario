@@ -1,0 +1,30 @@
+# Workflow de construcción (BUILD) del Sistema de Inventario
+name: Build - Sistema de Inventario
+
+# Eventos que lo activan
+on:
+  push:
+    branches: [ main ]          # cada vez que se integran cambios a main
+  pull_request:
+    branches: [ main ]          # cada Pull Request que quiere entrar a main
+  workflow_dispatch:            # permite ejecutarlo a mano desde la pestaña Actions
+
+jobs:
+  build:
+    name: Verificar que el proyecto se construye
+    runs-on: ubuntu-latest      # máquina virtual Linux que da GitHub
+
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar el entorno de Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mostrar versión de Python
+        run: python --version
+
+      - name: Construir (compilar) el código fuente
+        run: python -m compileall -q -f src
