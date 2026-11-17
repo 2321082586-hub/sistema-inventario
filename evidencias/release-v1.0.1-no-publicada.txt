@@ -1,0 +1,1 @@
+v1.0.1: NO se publicó en GitHub Releases (correcto: las pruebas fallaron)

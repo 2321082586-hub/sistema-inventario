@@ -1,0 +1,26 @@
+title:	Sistema de Inventario v1.0.0
+tag:	v1.0.0
+draft:	false
+prerelease:	false
+immutable:	false
+author:	github-actions[bot]
+created:	2026-11-17T20:21:34Z
+published:	2026-11-17T20:21:48Z
+url:	https://github.com/2321082586-hub/sistema-inventario/releases/tag/v1.0.0
+asset:	sistema-inventario-v1.0.0.zip
+--
+## What's Changed
+* Agregar funcionalidad de registro de productos by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/12
+* Agregar búsqueda de productos by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/13
+* Mensaje: Producto disponible by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/14
+* Mensaje: Producto registrado by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/15
+* Agregar consulta de productos by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/17
+* Agregar workflow de construcción con GitHub Actions by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/18
+* Prueba: error de compilación intencional by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/19
+* Agregar pruebas para la funcionalidad Producto by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/20
+* Agregar programa principal (src/main.py) by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/21
+
+## New Contributors
+* @2321082586-hub made their first contribution in https://github.com/2321082586-hub/sistema-inventario/pull/12
+
+**Full Changelog**: https://github.com/2321082586-hub/sistema-inventario/commits/v1.0.0

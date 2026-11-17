@@ -1,0 +1,10 @@
+Archive:  /var/folders/0f/mng51v190md0jj43mbvrnb_c0000gn/T/tmp.5Zh5p5gLCj/sistema-inventario-v1.0.0.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  11-17-2026 14:21   src/
+      502  11-17-2026 14:21   src/consulta.py
+      655  11-17-2026 14:21   src/producto.py
+      597  11-17-2026 14:21   src/busqueda.py
+     2404  11-17-2026 14:21   src/main.py
+---------                     -------
+     4158                     5 files

@@ -1,0 +1,28 @@
+=== Sistema de Inventario (demostración) ===
+Producto P001 registrado.
+Producto P002 registrado.
+
+>> Consultar P001
+Código:      P001
+Nombre:      Teclado
+Precio:      $350.00
+Existencia:  10
+Producto disponible y registrado
+
+>> Inventario completo
+--------------------------------
+Código:      P001
+Nombre:      Teclado
+Precio:      $350.00
+Existencia:  10
+Producto disponible y registrado
+--------------------------------
+Código:      P002
+Nombre:      Mouse
+Precio:      $180.00
+Existencia:  5
+Producto disponible y registrado
+--------------------------------
+Total de productos: 2
+
+Sistema funcionando correctamente.

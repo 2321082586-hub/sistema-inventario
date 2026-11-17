@@ -1,0 +1,16 @@
+title:	Sistema de Inventario v1.0.2
+tag:	v1.0.2
+draft:	false
+prerelease:	false
+immutable:	false
+author:	github-actions[bot]
+created:	2026-11-17T20:23:35Z
+published:	2026-11-17T20:23:50Z
+url:	https://github.com/2321082586-hub/sistema-inventario/releases/tag/v1.0.2
+asset:	sistema-inventario-v1.0.2.zip
+--
+## What's Changed
+* Corregir error detectado en la liberación v1.0.1 by @2321082586-hub in https://github.com/2321082586-hub/sistema-inventario/pull/23
+
+
+**Full Changelog**: https://github.com/2321082586-hub/sistema-inventario/compare/v1.0.1...v1.0.2
