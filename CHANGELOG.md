@@ -3,6 +3,15 @@
 Todas las versiones se generan automáticamente con el workflow
 `.github/workflows/release.yml` al publicar una etiqueta `v*`.
 
+## Sin publicar
+
+- Corrección de `valor_inventario()`: usaba el atributo inexistente `cantidad` en lugar de `existencia`.
+
+## v1.1.0 – Retirada
+
+- Agrega el cálculo del valor total del inventario.
+- Al desplegarla, el programa falló con `AttributeError` y se recuperó la versión v1.0.2.
+
 ## v1.0.2 – Corrección
 
 - Corrección del error en el precio detectado durante la liberación de v1.0.1.

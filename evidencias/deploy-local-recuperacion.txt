@@ -1,0 +1,85 @@
+=== 1) Se despliega v1.1.0 ===
+total 16
+lrwxr-xr-x  1 jeshua  staff    14 17 nov 14:25 actual -> version-v1.1.0
+-rw-r--r--  1 jeshua  staff  2525 17 nov 14:24 sistema-inventario-v1.0.2.zip
+-rw-r--r--  1 jeshua  staff  2618 17 nov 14:25 sistema-inventario-v1.1.0.zip
+drwxr-xr-x  3 jeshua  staff    96 17 nov 14:24 version-v1.0.2
+drwxr-xr-x  3 jeshua  staff    96 17 nov 14:25 version-v1.1.0
+$ cd actual && python3 src/main.py --demo
+=== Sistema de Inventario (demostración) ===
+Producto P001 registrado.
+Producto P002 registrado.
+
+>> Consultar P001
+Código:      P001
+Nombre:      Teclado
+Precio:      $350.00
+Existencia:  10
+Producto disponible y registrado
+
+>> Inventario completo
+--------------------------------
+Código:      P001
+Nombre:      Teclado
+Precio:      $350.00
+Existencia:  10
+Producto disponible y registrado
+--------------------------------
+Código:      P002
+Nombre:      Mouse
+Precio:      $180.00
+Existencia:  5
+Producto disponible y registrado
+--------------------------------
+Total de productos: 2
+
+>> Valor del inventario
+Traceback (most recent call last):
+  File "/Users/jeshua/Downloads/despliegue-inventario/version-v1.1.0/src/main.py", line 90, in <module>
+    demo()
+  File "/Users/jeshua/Downloads/despliegue-inventario/version-v1.1.0/src/main.py", line 59, in demo
+    valor_inventario()
+  File "/Users/jeshua/Downloads/despliegue-inventario/version-v1.1.0/src/main.py", line 45, in valor_inventario
+    total = sum(p.precio * p.cantidad for p in inventario.values())
+  File "/Users/jeshua/Downloads/despliegue-inventario/version-v1.1.0/src/main.py", line 45, in <genexpr>
+    total = sum(p.precio * p.cantidad for p in inventario.values())
+AttributeError: 'Producto' object has no attribute 'cantidad'
+Resultado: ERROR, la versión v1.1.0 no funciona
+
+=== 2) Se recupera la versión anterior v1.0.2 ===
+$ ln -sfn version-v1.0.2 actual
+total 16
+lrwxr-xr-x  1 jeshua  staff    14 17 nov 14:25 actual -> version-v1.0.2
+-rw-r--r--  1 jeshua  staff  2525 17 nov 14:24 sistema-inventario-v1.0.2.zip
+-rw-r--r--  1 jeshua  staff  2618 17 nov 14:25 sistema-inventario-v1.1.0.zip
+drwxr-xr-x  3 jeshua  staff    96 17 nov 14:24 version-v1.0.2
+drwxr-xr-x  3 jeshua  staff    96 17 nov 14:25 version-v1.1.0
+$ cd actual && python3 src/main.py --demo
+=== Sistema de Inventario (demostración) ===
+Producto P001 registrado.
+Producto P002 registrado.
+
+>> Consultar P001
+Código:      P001
+Nombre:      Teclado
+Precio:      $350.00
+Existencia:  10
+Producto disponible y registrado
+
+>> Inventario completo
+--------------------------------
+Código:      P001
+Nombre:      Teclado
+Precio:      $350.00
+Existencia:  10
+Producto disponible y registrado
+--------------------------------
+Código:      P002
+Nombre:      Mouse
+Precio:      $180.00
+Existencia:  5
+Producto disponible y registrado
+--------------------------------
+Total de productos: 2
+
+Sistema funcionando correctamente.

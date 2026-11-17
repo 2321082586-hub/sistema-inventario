@@ -1,0 +1,11 @@
+Versión: v1.0.2
+Nombre: Sistema de Inventario v1.0.2
+Etiqueta: v1.0.2
+Publicada: 2026-11-17T20:23:50Z
+Archivo: sistema-inventario-v1.0.2.zip
+Ubicación del despliegue: /Users/jeshua/Downloads/despliegue-inventario
+
+Requisitos del entorno:
+  Sistema: Darwin 27.0.0
+  Python: Python 3.9.6
+  unzip: /usr/bin/unzip

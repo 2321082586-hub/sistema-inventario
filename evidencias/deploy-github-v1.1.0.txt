@@ -1,0 +1,37 @@
+
+X main Despliegue del Sistema de Inventario · 44169211611
+Triggered via workflow_dispatch less than a minute ago
+
+JOBS
+X Desplegar en el servidor de destino in 13s (ID 134343452681)
+  ✓ Set up job
+  ✓ Initialize containers
+  ✓ Descargar versión liberada desde GitHub Releases
+  ✓ Configurar conexión SSH con los secretos
+  ✓ Preparar el servidor de destino
+  ✓ Transferir y preparar la versión en el servidor
+  ✓ Ejecutar y verificar el sistema
+  ✓ Recuperar la versión anterior
+  X Resultado del despliegue
+  ✓ Stop containers
+  ✓ Complete job
+
+ANNOTATIONS
+X Process completed with exit code 1.
+Desplegar en el servidor de destino: .github#24
+
+X La versión v1.1.0 no pasó la verificación en el servidor.
+Desplegar en el servidor de destino: .github#23
+
+! La versión v1.1.0 falló la verificación. Se recupera v1.0.2.
+Desplegar en el servidor de destino: .github#10
+
+X Process completed with exit code 1.
+Desplegar en el servidor de destino: .github#50
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+Desplegar en el servidor de destino: .github#1
+
+
+To see what failed, try: gh run view 44169211611 --log-failed
+View this run on GitHub: https://github.com/2321082586-hub/sistema-inventario/actions/runs/44169211611

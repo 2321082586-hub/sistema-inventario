@@ -1,0 +1,287 @@
+Desplegar en el servidor de destino	Set up job	﻿2026-11-17T20:24:29.0389326Z Current runner version: '2.338.2'
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0416646Z ##[group]Runner Image Provisioner
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0417738Z Hosted Compute Agent
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0418538Z Version: 20261103.629
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0419771Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0420707Z Build Date: 2026-11-03T17:26:59Z
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0421581Z Worker ID: {a60ccc68-eba5-481a-bae2-b86487acba17}
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0422497Z Region: canadaeast
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0423227Z Cloud: Azure
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0423932Z ##[endgroup]
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0425529Z ##[group]Operating System
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0426472Z Ubuntu
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0427122Z 26.04.1
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0427828Z LTS
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0428456Z ##[endgroup]
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0429597Z ##[group]Runner Image
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0430415Z Image: ubuntu-26.04
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0431196Z Version: 20261111.196.1
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0432700Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0434618Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0435790Z ##[endgroup]
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0437122Z ##[group]GITHUB_TOKEN Permissions
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0439762Z Contents: read
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0440612Z Metadata: read
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0441332Z ##[endgroup]
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0443741Z Secret source: Actions
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0444922Z Cache mode: write
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.0445794Z Prepare workflow directory
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.1034290Z Prepare all required actions
+Desplegar en el servidor de destino	Set up job	2026-11-17T20:24:29.2017635Z Complete job name: Desplegar en el servidor de destino
+Desplegar en el servidor de destino	Initialize containers	﻿2026-11-17T20:24:29.2905310Z ##[group]Checking docker version
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.2919531Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.3983007Z '1.54'
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4005002Z Docker daemon API version: '1.54'
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4005939Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4197954Z '1.54'
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4214996Z Docker client API version: '1.54'
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4220548Z ##[endgroup]
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4223527Z ##[group]Clean up resources from previous jobs
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4228841Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=48a3d2"
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4402939Z ##[command]/usr/bin/docker network prune --force --filter "label=48a3d2"
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4560228Z ##[endgroup]
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4560857Z ##[group]Create local container network
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.4571005Z ##[command]/usr/bin/docker network create --label 48a3d2 github_network_a8efdc95470142a2a5dc84cc8603f733
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.5015425Z 617c54a4a34160813a119856de3efae9955d2c690af12a40f4e6a22bbf37da61
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.5037703Z ##[endgroup]
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.5063033Z ##[group]Starting servidor service container
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:29.5086515Z ##[command]/usr/bin/docker pull lscr.io/linuxserver/openssh-server:latest
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.5311148Z latest: Pulling from linuxserver/openssh-server
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8976496Z f6a4c3e338ed: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8978675Z 34c06b7f4a92: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8981354Z efc1a479174c: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8983709Z 34c93598e585: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8986133Z 23b6a4730181: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8987675Z d3ae61b552ec: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8989757Z e2a4e0d6c6f8: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8991593Z 01dcaa168b62: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:30.8993651Z 7970ef2aa55e: Pulling fs layer
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.1300295Z 34c93598e585: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.1302648Z f6a4c3e338ed: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.2290771Z efc1a479174c: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.3296876Z 34c06b7f4a92: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.3302720Z 7970ef2aa55e: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.3306352Z 23b6a4730181: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.3313578Z e2a4e0d6c6f8: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.4291232Z 01dcaa168b62: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.4305797Z d3ae61b552ec: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.6291725Z 44136fa355b3: Already exists
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.7287610Z 53160d4acefc: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.7318648Z f6a4c3e338ed: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.7382579Z 7970ef2aa55e: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.7405126Z 23b6a4730181: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.7432146Z 01dcaa168b62: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.8290485Z 069b4ca16cfc: Download complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:31.8321937Z efc1a479174c: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0294287Z 34c93598e585: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0320389Z 34c06b7f4a92: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0322006Z e2a4e0d6c6f8: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0351801Z d3ae61b552ec: Pull complete
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0399561Z Digest: sha256:161e0b670b31d9539ca1718bc5943e981779331b4e1c9d32e8929d7652a1f22f
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0402706Z Status: Downloaded newer image for lscr.io/linuxserver/openssh-server:latest
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0411533Z lscr.io/linuxserver/openssh-server:latest
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.0513458Z ##[command]/usr/bin/docker create --name 1c9b87948bfc4315983fdf8abb2256c8_lscriolinuxserveropensshserverlatest_a6b46e --label 48a3d2 --network github_network_a8efdc95470142a2a5dc84cc8603f733 --network-alias servidor -p ***:***  -e "USER_NAME=***" -e "PUBLIC_KEY=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMUdg5nvQkDXuJ0jymb6O6m4vGHJsm0SXjgQ29fwZhTJ ***-sistema-inventario" -e "PASSWORD_ACCESS=false" -e "SUDO_ACCESS=true" -e GITHUB_ACTIONS=true -e CI=true lscr.io/linuxserver/openssh-server:latest
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.1422873Z 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.1451873Z ##[command]/usr/bin/docker start 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.3614246Z 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.3662033Z ##[command]/usr/bin/docker ps --all --filter id=773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.3938060Z 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5 Up Less than a second
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.3967666Z ##[command]/usr/bin/docker port 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4136411Z ***/tcp -> 0.0.0.0:***
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4137608Z ***/tcp -> [::]:***
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4222783Z ##[endgroup]
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4234732Z ##[group]Waiting for all services to be ready
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4253242Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4472466Z servidor service is healthy.
+Desplegar en el servidor de destino	Initialize containers	2026-11-17T20:24:32.4473512Z ##[endgroup]
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	﻿2026-11-17T20:24:32.4726410Z ##[group]Run gh release download "$VERSION" --repo "$GITHUB_REPOSITORY" --pattern "sistema-inventario-$VERSION.zip"
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4727424Z ^[[36;1mgh release download "$VERSION" --repo "$GITHUB_REPOSITORY" --pattern "sistema-inventario-$VERSION.zip"^[[0m
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4728019Z ^[[36;1mif [ -n "$ANTERIOR" ]; then^[[0m
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4728581Z ^[[36;1m  gh release download "$ANTERIOR" --repo "$GITHUB_REPOSITORY" --pattern "sistema-inventario-$ANTERIOR.zip"^[[0m
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4729402Z ^[[36;1mfi^[[0m
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4729641Z ^[[36;1mls -l *.zip^[[0m
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4792972Z shell: /usr/bin/bash -e {0}
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4793924Z env:
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4794317Z   VERSION: v1.0.2
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4794592Z   ANTERIOR: 
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4799728Z   GH_TOKEN: ***
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:32.4800179Z ##[endgroup]
+Desplegar en el servidor de destino	Descargar versión liberada desde GitHub Releases	2026-11-17T20:24:33.1574541Z -rw-r--r-- 1 runner runner 2525 Nov 17 20:24 sistema-inventario-v1.0.2.zip
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	﻿2026-11-17T20:24:33.1670238Z ##[group]Run mkdir -p ~/.ssh && chmod 700 ~/.ssh
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1670718Z ^[[36;1mmkdir -p ~/.ssh && chmod 700 ~/.ssh^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1671229Z ^[[36;1mprintf '%s\n' "$DEPLOY_KEY" > ~/.ssh/***_key^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1671884Z ^[[36;1mchmod 600 ~/.ssh/***_key^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1672177Z ^[[36;1mfor i in $(seq 1 30); do^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1672668Z ^[[36;1m  ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" > ~/.ssh/known_hosts 2>/dev/null || true^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1673212Z ^[[36;1m  [ -s ~/.ssh/known_hosts ] && break^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1673591Z ^[[36;1m  echo "Esperando al servidor SSH... ($i)"; sleep 2^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1673946Z ^[[36;1mdone^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1674399Z ^[[36;1mprintf 'Host destino\n  HostName %s\n  Port %s\n  User %s\n  IdentityFile %s\n  UserKnownHostsFile %s\n' \^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1675180Z ^[[36;1m  "$DEPLOY_HOST" "$DEPLOY_PORT" "$DEPLOY_USER" "$HOME/.ssh/***_key" "$HOME/.ssh/known_hosts" > ~/.ssh/config^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1675716Z ^[[36;1mfor i in $(seq 1 15); do^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1676268Z ^[[36;1m  ssh -F ~/.ssh/config -o BatchMode=yes destino 'echo "Conectado a $(hostname) como $(whoami)"' && break^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1676864Z ^[[36;1m  echo "Reintentando conexión... ($i)"; sleep 2^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1677218Z ^[[36;1mdone^[[0m
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1727054Z shell: /usr/bin/bash -e {0}
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1727356Z env:
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1727585Z   VERSION: v1.0.2
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1727833Z   ANTERIOR: 
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1730607Z   GH_TOKEN: ***
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1732491Z   DEPLOY_KEY: ***
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1732759Z   DEPLOY_HOST: ***
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1733018Z   DEPLOY_USER: ***
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1733256Z   DEPLOY_PORT: ***
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.1733485Z ##[endgroup]
+Desplegar en el servidor de destino	Configurar conexión SSH con los secretos	2026-11-17T20:24:33.4253157Z Conectado a 773ff9c07b0b como ***
+Desplegar en el servidor de destino	Preparar el servidor de destino	﻿2026-11-17T20:24:33.4303242Z ##[group]Run ssh -F ~/.ssh/config destino 'sudo apk add --no-cache python3 unzip > /dev/null && python3 --version && mkdir -p ~/sistema-inventario && echo "Directorio listo: ~/sistema-inventario"'
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4304627Z ^[[36;1mssh -F ~/.ssh/config destino 'sudo apk add --no-cache python3 unzip > /dev/null && python3 --version && mkdir -p ~/sistema-inventario && echo "Directorio listo: ~/sistema-inventario"'^[[0m
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4387150Z shell: /usr/bin/bash -e {0}
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4388023Z env:
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4388360Z   VERSION: v1.0.2
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4390050Z   ANTERIOR: 
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4395105Z   GH_TOKEN: ***
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:33.4395515Z ##[endgroup]
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:34.3194729Z Python 3.14.10
+Desplegar en el servidor de destino	Preparar el servidor de destino	2026-11-17T20:24:34.3213193Z Directorio listo: ~/sistema-inventario
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	﻿2026-11-17T20:24:34.3266256Z ##[group]Run desplegar() {
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3266645Z ^[[36;1mdesplegar() {^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3266912Z ^[[36;1m  v="$1"^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3267229Z ^[[36;1m  echo "--- Transfiriendo sistema-inventario-$v.zip"^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3267769Z ^[[36;1m  scp -F ~/.ssh/config "sistema-inventario-$v.zip" destino:sistema-inventario/ \^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3268555Z ^[[36;1m    || ssh -F ~/.ssh/config destino "cat > sistema-inventario/sistema-inventario-$v.zip" < "sistema-inventario-$v.zip"^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3270357Z ^[[36;1m  ssh -F ~/.ssh/config destino "cd ~/sistema-inventario && mkdir -p version-$v && unzip -oq sistema-inventario-$v.zip -d version-$v && ln -sfn version-$v actual && ls -R version-$v"^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3271181Z ^[[36;1m}^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3271424Z ^[[36;1mif [ -n "$ANTERIOR" ]; then^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3271766Z ^[[36;1m  desplegar "$ANTERIOR"^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3272253Z ^[[36;1m  ssh -F ~/.ssh/config destino 'cd ~/sistema-inventario/actual && python3 src/main.py --demo'^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3272774Z ^[[36;1mfi^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3273004Z ^[[36;1mdesplegar "$VERSION"^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3273360Z ^[[36;1mssh -F ~/.ssh/config destino 'ls -l ~/sistema-inventario'^[[0m
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3322160Z shell: /usr/bin/bash -e {0}
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3322449Z env:
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3322676Z   VERSION: v1.0.2
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3322919Z   ANTERIOR: 
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3326076Z   GH_TOKEN: ***
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3326350Z ##[endgroup]
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.3394737Z --- Transfiriendo sistema-inventario-v1.0.2.zip
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6224380Z version-v1.0.2:
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6224914Z src
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6225166Z 
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6225355Z version-v1.0.2/src:
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6225806Z busqueda.py
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6226209Z consulta.py
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6226738Z main.py
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.6227143Z producto.py
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.7455668Z total 8
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.7456435Z lrwxrwxrwx 1 *** ***   14 Nov 17 20:24 actual -> version-v1.0.2
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.7457164Z -rw-r--r-- 1 *** *** 2525 Nov 17 20:24 sistema-inventario-v1.0.2.zip
+Desplegar en el servidor de destino	Transferir y preparar la versión en el servidor	2026-11-17T20:24:34.7457701Z drwxr-xr-x 3 *** *** 4096 Nov 17 20:24 version-v1.0.2
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	﻿2026-11-17T20:24:34.7503787Z ##[group]Run ssh -F ~/.ssh/config destino 'cd ~/sistema-inventario/actual && python3 src/main.py --demo'
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7504624Z ^[[36;1mssh -F ~/.ssh/config destino 'cd ~/sistema-inventario/actual && python3 src/main.py --demo'^[[0m
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7553466Z shell: /usr/bin/bash -e {0}
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7553758Z env:
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7553981Z   VERSION: v1.0.2
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7554246Z   ANTERIOR: 
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7556858Z   GH_TOKEN: ***
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.7557112Z ##[endgroup]
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9085138Z === Sistema de Inventario (demostración) ===
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9085627Z Producto P001 registrado.
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9085916Z Producto P002 registrado.
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9086090Z 
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9086196Z >> Consultar P001
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9086473Z Código:      P001
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9086702Z Nombre:      Teclado
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9086968Z Precio:      $350.00
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9087213Z Existencia:  10
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9087472Z Producto disponible y registrado
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9087719Z 
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9087829Z >> Inventario completo
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9088077Z --------------------------------
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9088375Z Código:      P001
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9088618Z Nombre:      Teclado
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9089029Z Precio:      $350.00
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9089314Z Existencia:  10
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9089561Z Producto disponible y registrado
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9089855Z --------------------------------
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9090156Z Código:      P002
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9090387Z Nombre:      Mouse
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9090610Z Precio:      $180.00
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9090845Z Existencia:  5
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9091097Z Producto disponible y registrado
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9091378Z --------------------------------
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9091653Z Total de productos: 2
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9091807Z 
+Desplegar en el servidor de destino	Ejecutar y verificar el sistema	2026-11-17T20:24:34.9091926Z Sistema funcionando correctamente.
+Desplegar en el servidor de destino	Resultado del despliegue	﻿2026-11-17T20:24:34.9170213Z ##[group]Run {
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9170500Z ^[[36;1m{^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9170764Z ^[[36;1m  echo "## Resultado del despliegue"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9171091Z ^[[36;1m  echo ""^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9171341Z ^[[36;1m  echo "| Dato | Valor |"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9171625Z ^[[36;1m  echo "| --- | --- |"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9171957Z ^[[36;1m  echo "| Versión solicitada | $VERSION |"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9172377Z ^[[36;1m  echo "| Versión anterior | ${ANTERIOR:-ninguna} |"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9172877Z ^[[36;1m  echo "| Verificación | success |"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9173259Z ^[[36;1m  echo "| Recuperación | skipped |"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9173593Z ^[[36;1m} >> "$GITHUB_STEP_SUMMARY"^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9173910Z ^[[36;1mif [ "success" != "success" ]; then^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9174380Z ^[[36;1m  echo "::error::La versión $VERSION no pasó la verificación en el servidor."^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9174840Z ^[[36;1m  exit 1^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9175074Z ^[[36;1mfi^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9175370Z ^[[36;1mecho "Versión $VERSION desplegada y verificada."^[[0m
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9224672Z shell: /usr/bin/bash -e {0}
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9224970Z env:
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9225192Z   VERSION: v1.0.2
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9225434Z   ANTERIOR: 
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9228023Z   GH_TOKEN: ***
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9228274Z ##[endgroup]
+Desplegar en el servidor de destino	Resultado del despliegue	2026-11-17T20:24:34.9299975Z Versión v1.0.2 desplegada y verificada.
+Desplegar en el servidor de destino	Stop containers	﻿2026-11-17T20:24:34.9361719Z Print service container logs: 1c9b87948bfc4315983fdf8abb2256c8_lscriolinuxserveropensshserverlatest_a6b46e
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9366572Z ##[command]/usr/bin/docker logs --details 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9517026Z  [migrations] started
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9517834Z  [migrations] no migrations found
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9518525Z  usermod: no changes
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9519176Z  ───────────────────────────────────────
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9519689Z  
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9520034Z        ██╗     ███████╗██╗ ██████╗
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9520491Z        ██║     ██╔════╝██║██╔═══██╗
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9520968Z        ██║     ███████╗██║██║   ██║
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9521426Z        ██║     ╚════██║██║██║   ██║
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9521891Z        ███████╗███████║██║╚██████╔╝
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9522355Z        ╚══════╝╚══════╝╚═╝ ╚═════╝
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9522787Z  
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9523152Z     Brought to you by linuxserver.io
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9523665Z  ───────────────────────────────────────
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9524251Z  
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9524613Z  To support LSIO projects visit:
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9525014Z  https://www.linuxserver.io/donate/
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9525313Z  
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9525536Z  ───────────────────────────────────────
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9525824Z  GID/UID
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9526047Z  ───────────────────────────────────────
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9526365Z  
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9526554Z  User UID:    911
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9526804Z  User GID:    911
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9527042Z  ───────────────────────────────────────
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9527346Z  Linuxserver.io version: 10.3_p1-r2-ls243
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9527697Z  Build-date: 2026-11-08T22:30:42+00:00
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9528003Z  ───────────────────────────────────────
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9528289Z      
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9528579Z  User name is set to ***
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9529038Z  sudo is enabled without password.
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9529448Z  ssh-keygen: generating new host keys: RSA ECDSA ED25519 
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9529852Z  SSH host public key(s):
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9530721Z  ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDJj+VU4FTbXoDqGyLuq+Dlup7dsEYmtF2xvCi/GnZYoKtIXCuON5eATLNIb3rPS0gjQM4a/tkQIC21EmKxbTwo= root@773ff9c07b0b
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9532334Z  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJP14zJwjGRmdMj8KXkW9tG843yA1/3H77oaLk0VJWj8 root@773ff9c07b0b
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9535885Z  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/lAH7pZi2EDfsRvsM4w9q8Bfp03wAvKw7Yj9G0TDgpWZMNuLfxkH1BcIYV724eP+ygkrt5MangJFAJ9LQBY4ioNHpjgyPirtZaJb45IkLjrSTwLrKJho3c/eAcEM8fEJOOgzKuvf9I2T9t0TeH4XSfxMz+HwFc+h3O7E/QM91RR0CLTYOvDelpHxEiA8LRqWyPtNjZNwP2zjNcTv/UHcc7ZQWzabHwybueS8c8oKdic34Xvq12XBY0rb4tP/r0pC0pGb8+iC+UaIGrb6lAI8Y/RXHgL6NEnbC2/zckkAD8fD3utCOZ1Crxo5GgEAmUBgzA+6L+gbGVCIT0ZMYCT4tz99QtoTbUl3ZQRbwNth90EzBk9Crgf5tERRpzFI0j7GTo+gtGlV0hfpwdCb+n9U6hRbpNRi1QasMMbf3Ss8kjH1QNVw6+pQOsckvX/ON5XzA7IoHboNEZ4ixxHL+MueqbDaSotcEGHoUpdeKUMNZ3Cnq/Rf39coiur5BTa4akfE= root@773ff9c07b0b
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9538559Z  sshd is listening on port ***
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9539081Z  User/password ssh access is disabled.
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9539430Z  Public key from env variable added
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9539761Z  [custom-init] No custom files found, skipping...
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9540098Z  [ls.io-init] done.
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9545770Z Stop and remove container: 1c9b87948bfc4315983fdf8abb2256c8_lscriolinuxserveropensshserverlatest_a6b46e
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:34.9551367Z ##[command]/usr/bin/docker rm --force 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:35.2405851Z 773ff9c07b0b4f5ce736cd70e8158c36fe69fa6267ef1442c89ab9f5da507eb5
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:35.2457319Z Remove container network: github_network_a8efdc95470142a2a5dc84cc8603f733
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:35.2463753Z ##[command]/usr/bin/docker network rm github_network_a8efdc95470142a2a5dc84cc8603f733
+Desplegar en el servidor de destino	Stop containers	2026-11-17T20:24:35.3062768Z github_network_a8efdc95470142a2a5dc84cc8603f733
+Desplegar en el servidor de destino	Complete job	﻿2026-11-17T20:24:35.3144268Z Cleaning up orphan processes

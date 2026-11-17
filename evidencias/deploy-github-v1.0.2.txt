@@ -1,0 +1,14 @@
+
+✓ main Despliegue del Sistema de Inventario · 44168960068
+Triggered via workflow_dispatch less than a minute ago
+
+JOBS
+✓ Desplegar en el servidor de destino in 9s (ID 134342559517)
+
+ANNOTATIONS
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+Desplegar en el servidor de destino: .github#1
+
+
+For more information about the job, try: gh run view --job=134342559517
+View this run on GitHub: https://github.com/2321082586-hub/sistema-inventario/actions/runs/44168960068
