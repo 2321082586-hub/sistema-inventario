@@ -42,7 +42,7 @@ def mostrar_inventario():
 
 def valor_inventario():
     """Calcula el valor total del inventario (precio x existencia)."""
-    total = sum(p.precio * p.cantidad for p in inventario.values())
+    total = sum(p.precio * p.existencia for p in inventario.values())
     print(f"Valor total del inventario: ${total:,.2f}")
     return total
 
