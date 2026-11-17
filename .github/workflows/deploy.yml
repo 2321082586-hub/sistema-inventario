@@ -1,0 +1,122 @@
+name: Despliegue del Sistema de Inventario
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Versión publicada en GitHub Releases que se desplegará"
+        required: true
+        default: "v1.0.2"
+      version_anterior:
+        description: "Versión estable anterior, para recuperarla si la nueva falla (opcional)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Desplegar en el servidor de destino
+    runs-on: ubuntu-latest
+
+    # Servidor de destino: máquina Linux con acceso SSH (contenedor).
+    # Para usar una máquina virtual real, solo cambian los secretos y se quita "services".
+    services:
+      servidor:
+        image: lscr.io/linuxserver/openssh-server:latest
+        ports:
+          - 2222:2222
+        env:
+          USER_NAME: ${{ secrets.DEPLOY_USER }}
+          PUBLIC_KEY: ${{ vars.DEPLOY_PUBLIC_KEY }}
+          PASSWORD_ACCESS: "false"
+          SUDO_ACCESS: "true"
+
+    env:
+      VERSION: ${{ inputs.version }}
+      ANTERIOR: ${{ inputs.version_anterior }}
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Descargar versión liberada desde GitHub Releases
+        run: |
+          gh release download "$VERSION" --repo "$GITHUB_REPOSITORY" --pattern "sistema-inventario-$VERSION.zip"
+          if [ -n "$ANTERIOR" ]; then
+            gh release download "$ANTERIOR" --repo "$GITHUB_REPOSITORY" --pattern "sistema-inventario-$ANTERIOR.zip"
+          fi
+          ls -l *.zip
+
+      - name: Configurar conexión SSH con los secretos
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          for i in $(seq 1 30); do
+            ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" > ~/.ssh/known_hosts 2>/dev/null || true
+            [ -s ~/.ssh/known_hosts ] && break
+            echo "Esperando al servidor SSH... ($i)"; sleep 2
+          done
+          printf 'Host destino\n  HostName %s\n  Port %s\n  User %s\n  IdentityFile %s\n  UserKnownHostsFile %s\n' \
+            "$DEPLOY_HOST" "$DEPLOY_PORT" "$DEPLOY_USER" "$HOME/.ssh/deploy_key" "$HOME/.ssh/known_hosts" > ~/.ssh/config
+          for i in $(seq 1 15); do
+            ssh -F ~/.ssh/config -o BatchMode=yes destino 'echo "Conectado a $(hostname) como $(whoami)"' && break
+            echo "Reintentando conexión... ($i)"; sleep 2
+          done
+
+      - name: Preparar el servidor de destino
+        run: |
+          ssh -F ~/.ssh/config destino 'sudo apk add --no-cache python3 unzip > /dev/null && python3 --version && mkdir -p ~/sistema-inventario && echo "Directorio listo: ~/sistema-inventario"'
+
+      - name: Transferir y preparar la versión en el servidor
+        run: |
+          desplegar() {
+            v="$1"
+            echo "--- Transfiriendo sistema-inventario-$v.zip"
+            scp -F ~/.ssh/config "sistema-inventario-$v.zip" destino:sistema-inventario/ \
+              || ssh -F ~/.ssh/config destino "cat > sistema-inventario/sistema-inventario-$v.zip" < "sistema-inventario-$v.zip"
+            ssh -F ~/.ssh/config destino "cd ~/sistema-inventario && mkdir -p version-$v && unzip -oq sistema-inventario-$v.zip -d version-$v && ln -sfn version-$v actual && ls -R version-$v"
+          }
+          if [ -n "$ANTERIOR" ]; then
+            desplegar "$ANTERIOR"
+            ssh -F ~/.ssh/config destino 'cd ~/sistema-inventario/actual && python3 src/main.py --demo'
+          fi
+          desplegar "$VERSION"
+          ssh -F ~/.ssh/config destino 'ls -l ~/sistema-inventario'
+
+      - name: Ejecutar y verificar el sistema
+        id: verificar
+        continue-on-error: true
+        run: |
+          ssh -F ~/.ssh/config destino 'cd ~/sistema-inventario/actual && python3 src/main.py --demo'
+
+      - name: Recuperar la versión anterior
+        id: recuperar
+        if: steps.verificar.outcome == 'failure' && inputs.version_anterior != ''
+        run: |
+          echo "::warning::La versión $VERSION falló la verificación. Se recupera $ANTERIOR."
+          ssh -F ~/.ssh/config destino "cd ~/sistema-inventario && ln -sfn version-$ANTERIOR actual && ls -l && cd actual && python3 src/main.py --demo"
+
+      - name: Resultado del despliegue
+        if: always()
+        run: |
+          {
+            echo "## Resultado del despliegue"
+            echo ""
+            echo "| Dato | Valor |"
+            echo "| --- | --- |"
+            echo "| Versión solicitada | $VERSION |"
+            echo "| Versión anterior | ${ANTERIOR:-ninguna} |"
+            echo "| Verificación | ${{ steps.verificar.outcome }} |"
+            echo "| Recuperación | ${{ steps.recuperar.outcome }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ steps.verificar.outcome }}" != "success" ]; then
+            echo "::error::La versión $VERSION no pasó la verificación en el servidor."
+            exit 1
+          fi
+          echo "Versión $VERSION desplegada y verificada."
