@@ -40,6 +40,13 @@ def mostrar_inventario():
     print(f"Total de productos: {len(inventario)}")
 
 
+def valor_inventario():
+    """Calcula el valor total del inventario (precio x existencia)."""
+    total = sum(p.precio * p.cantidad for p in inventario.values())
+    print(f"Valor total del inventario: ${total:,.2f}")
+    return total
+
+
 def demo():
     print("=== Sistema de Inventario (demostración) ===")
     registrar_producto("P001", "Teclado", 350, 10)
@@ -48,6 +55,8 @@ def demo():
     consultar_producto("P001")
     print("\n>> Inventario completo")
     mostrar_inventario()
+    print("\n>> Valor del inventario")
+    valor_inventario()
     print("\nSistema funcionando correctamente.")
 
 
